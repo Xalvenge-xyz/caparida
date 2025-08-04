@@ -16,34 +16,36 @@ public class Main {
         
         System.out.print("Enter choice: ");
         int choice = sc.nextInt();
-        int attempt = 0;
-        int MaxAttpmt = 4;
         
         
         switch(choice){
             
             case 1:
-                
-                while (attempt <= MaxAttpmt){
-                bankingClass bc = new bankingClass();
-                
-                System.out.println("Enter your Account No: ");
-                int accountNo = sc.nextInt();
 
-                System.out.println("Enter your Pin: ");
-                int pin = sc.nextInt();
-              
-                    if(bc.verifyAccount(accountNo, pin)){
-                        System.out.println("LOGIN SUCCESS");
-                    }else{
-                        System.out.println("INVALID ACCOUNT!");
-                    }
-                    if (attempt <= MaxAttpmt){
-                     System.out.println("Too many Attempts!");
-                 }
-                    
-                }System.exit(0);
+        int attempt = 0;
+        int MaxAttpmt = 3;
+        bankingClass bc = new bankingClass();
+
+        while (attempt < MaxAttpmt) {
+            System.out.println("Enter your Account No: ");
+             int accountNo = sc.nextInt();
+
+             System.out.println("Enter your Pin: ");
+             int pin = sc.nextInt();
+
+            if (bc.verifyAccount(accountNo, pin)) {
+            System.out.println("LOGIN SUCCESS");
                 break;
+            } else {
+            attempt++;
+                 int attemptsLeft = MaxAttpmt - attempt;
+                    System.out.println("INVALID ACCOUNT!");
+            if (attemptsLeft > 0) {
+                System.out.println("Attempts left: " + attemptsLeft);
+                }   
+            }
+        }
+           
             case 2:
                 
                 break;
