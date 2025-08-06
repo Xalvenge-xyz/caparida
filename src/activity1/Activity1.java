@@ -1,6 +1,7 @@
 
 package activity1;
 import java.util.Scanner;
+import activity1.activity3;
 
 public class Activity1 {
 
@@ -45,6 +46,8 @@ public class Activity1 {
     }else {
           System.out.print("\nREMARKS: FAIL");
       }
+      
+      activity3 act = new activity3();
     }
     
 }
